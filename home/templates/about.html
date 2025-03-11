@@ -1,0 +1,27 @@
+{% extends "master.html" %}
+{% block body_class %}
+    custom-bg
+{% endblock %}
+
+
+{% block extra_styles %}
+    <style>
+        .custom-bg {
+            background: radial-gradient(circle, #da9ad4 0%, #a2b1ec 100%);
+        }
+    </style>
+{% endblock %}
+
+
+
+{% block title %}
+    About me
+{% endblock %}
+
+{% block content %}
+    <h1>Velkommen til min personlige hjemmeside :)</h1>
+
+    <p>Her kan du både finde mit CV, mine kontaktinformationer samt en oversigt
+        over et par forskellige programmer/apps jeg har udviklet.</p>
+{% endblock %}
+

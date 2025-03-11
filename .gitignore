@@ -1,0 +1,30 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# Django database
+db.sqlite3
+*.sqlite3
+
+# Secret settings
+.env
+
+# Media files (user-uploaded content)
+media/
+
+# Static files (Django collects them separately)
+staticfiles/
+
+# Django migrations (optional, except `__init__.py`)
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# VS Code and IDE files
+.vscode/
+*.swp
+.idea/

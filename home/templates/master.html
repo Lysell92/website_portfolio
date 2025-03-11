@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% block extra_styles %} {% endblock %}
+
+    <style>
+        body{
+            height:100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f2f2f2;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container, .card, footer {
+            background-color: transparent !important;
+            box-shadow: none;
+        }
+        .navbar-nav .nav-link {
+            margin-right: 15px;
+            transition: color 0.2s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #48390b;
+        }
+        .col-sm-6:hover {
+        background-color: rgba(255, 255, 255, 0.3) !important;
+        transition: 0.3s;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Hjem</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Apps og programmer</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'cv' %}" role = "button" data-bs-toggle="dropdown">
+                            CV og kontaktinformationer</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'cv' %}">Om mig</a></li>
+                            <li><a class="dropdown-item" href="{% url 'experience' %}">Erfaringer</a></li>
+                            <li><a class="dropdown-item" href="{% url 'contact' %}">Kontakt mig</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

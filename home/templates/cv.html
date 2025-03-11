@@ -1,0 +1,74 @@
+{% extends "master.html" %}
+{% load static %}
+{% block body_class %}
+    custom-bg
+{% endblock %}
+
+{% block extra_styles %}
+    <style>
+        .custom-bg {
+            background-image: url("{% static 'lightblue_background.jpg' %}");
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Mit CV
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="container p-5 my-5 text-dark">
+        <div class="card p-4 shadow-lg" >
+            <h1 class="text-center">Mit online CV</h1>
+            <p class="lead">Dette er mit online CV. Her kan du få et overblik over mine tilegnede erfaringer og kompetencer fra tidligere ansættelser/uddanelsesforløb.</p>
+        </div>
+        <div class="card mx-auto mt-5 shadow" style="width:300px">
+            <img class="card-img-top" src="{% static 'Peter.jpg' %}" alt="CV billede">
+            <div class="card-body text-center">
+                <h4 class="card-title">Peter Lysell Nielsen</h4>
+                <p class="card-text">Datatekniker elev med speciale i programmering</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-3 text-dark">
+        <div id="accordion">
+            <div class="card bg-info">
+                <div class="card-header">
+                    <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                        Kort om mig:
+                    </a>
+                </div>
+                <div id="collapseOne" class="collapse hide" data-bs-parent="#accordion">
+                    <div class="card-body">
+                        Mit navn er Peter Lysell Nielsen. Jeg er 33 år og er jeg i gang med, at uddanne mig i programmering som Datatekniker.
+                        Jeg har desuden færdiggjort en 5 årig uddannelse som Cand. Mag i Religionsvidenskab fra Aarhus Universitet.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card-header">
+                    <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
+                        Fritid:
+                    </a>
+                </div>
+                <div id="collapseTwo" class="collapse hide" data-bs-parent="#accordion">
+                    <div class="card-body">
+                        I min fritid er jeg frivillig på en bar nede på Klostertorv i midtbyen i Aarhus,
+                        hvor jeg bruger en stor del af min tid. Derudover dyrker jeg en hel del sport - bl.a. badminton, klatring, regelmæssigt løb
+                        og så praktiserer jeg også yoga og meditation. Jeg er også aktiv som bestyrelsesmedlem i en NGO, som beskæftiger sig med nødhjælp-
+                        og udviklingsarbejde.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer style="color: black;" class="text-end py-3 mt-5">
+        <p>Online CV</p>
+    </footer>
+{% endblock %}

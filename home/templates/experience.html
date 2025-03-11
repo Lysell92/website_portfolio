@@ -1,0 +1,127 @@
+{% extends "master.html" %}
+{% load static %}
+{% block body_class %}
+    custom-bg
+{% endblock %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% block extra_styles %}
+    <style>
+        .custom-bg {
+        background: radial-gradient(circle, #eeaecb 0%, #94bbe9 100%);
+        }
+
+        .carousel-item img{
+        width: 50%;
+        height: auto;
+        display: block;
+        margin:0 auto;
+        border: 3px solid #fdf;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
+    </style>
+{% endblock %}
+
+{% block title %}
+    Erfaringer
+{% endblock %}
+
+{% block content %}
+    <div class="container p-5 my-5 text-dark">
+        <div class="card p-4 shadow-lg" >
+            <h1 class="text-center">Mine erhvervs- og uddanelseserfaringer.</h1>
+            <p class="lead">Her kan du få et overblik over mine tidligere erfaringer og uddannelseskvalifikationer.</p>
+        </div>
+    </div>
+     <h2 class="mt-2 pt-5">Erfaring fra uddannelser:</h2>
+     <div class="container-fluid mt-2">
+         <div class="row">
+             <div class="col-sm-6 p-3 text-black-70" style="background-color: #94bbe9">
+                 Datatekniker med Speciale i programmering:
+             </div>
+             <div class="col-sm-6 p-3 text-black-50" style="background-color: #eeaecb">
+                 Generelt har jeg på uddannelsen fået kompetencer inden for et væld af forskellige ting - bl.a. computerteknologi
+                 og netværk, men mit fokus har hovedsageligt været på programmering, hvor jeg har taget kurser
+                 i Python og på nuværende tidspunkt er dykket ned i machine learning.
+             </div>
+         </div>
+     </div>
+
+     <div class="container-fluid mt-2">
+         <div class="row">
+             <div class="col-sm-6 p-3 text-black-70" style="background-color: #94bbe9">
+                 Kandidat i Religionsvidenskab:
+             </div>
+             <div class="col-sm-6 p-3 text-black-50" style="background-color: #eeaecb">
+                 Min kandidat i Religionsvidenskab har givet mig generelle analytiske komptencer, samt evnerne til at takle komplekse problemstillinger
+                 og arbejde selvstændigt og struktureret.
+             </div>
+         </div>
+     </div>
+
+     <h2>Erhvervserfaring:</h2>
+     <div class="container-fluid mt-2">
+         <div class="row">
+             <div class="col-sm-6 p-3 text-black-70" style="background-color: #94bbe9">
+                 Projektmedarbejder i en NGO:
+             </div>
+             <div class="col-sm-6 p-3 text-black-50" style="background-color: #eeaecb">
+                 Jeg har hovedsageligt beskæftiget mig med projekter i Filippinerne, hvor organisationen havde tre nødhjælpsprojekter kørende.
+                 Jeg var med til ansøge at yderligere projekter i området, facilitere møder med projektpartnerne og har af to omgange været på projektrejse i Filippinerne, hvor jeg fik til opgave
+                 at moniterere vores projekter og indgå i dialog med vores partnere og lokalsamfundene.
+             </div>
+         </div>
+     </div>
+
+     <div class="container-fluid mt-2" style="margin-bottom: 10px;">
+         <div class="row">
+             <div class="col-sm-6 p-3 text-black-70" style="background-color: #94bbe9">
+                 Frivillig på fairbar:
+             </div>
+             <div class="col-sm-6 p-3 text-black-50" style="background-color: #eeaecb">
+                 De sidste fire år har jeg været frivillig på fairbar, hvor jeg har indgået i et stærkt fællesskab, været involveret i forskellige udvalg og vedligeholdt mit arbejde
+                 som bartender.
+             </div>
+         </div>
+    </div>
+    <div class="container">
+        <div id="fili" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#fili" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#fili" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#fili" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                 <div class="carousel-item active">
+                    <img src="{% static 'fili1.JPG' %}" alt="fili1" class="d-block"
+                         style="width:50% height: auto;">
+                 </div>
+                 <div class="carousel-item">
+                     <img src="{% static 'fili2.JPG' %}" alt="fili2" class="d-block"
+                          style="width:30% height: auto;">
+                 </div>
+                 <div class="carousel-item">
+                     <img src="{% static 'filifaelles.JPG' %}" alt="filifaelles" class="d-block"
+                          style="width:50%; height: auto;">
+                 </div>
+             </div>
+            <button class="carousel-control-prev" type="button"
+                    data-bs-target="#fili" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button"
+                    data-bs-target="#fili" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-2">
+    <h3 class="text-center">Billeder fra mit udviklingsarbejde i Filippinerne</h3>
+    </div>
+
+     <footer style="background-color: #f2f2f2; color: black;" class="text-end py-3 mt-5">
+         <p>Online CV</p>
+     </footer>
+{% endblock %}

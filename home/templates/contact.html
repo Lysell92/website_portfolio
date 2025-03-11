@@ -1,0 +1,110 @@
+{% extends "master.html" %}
+{% block body_class %}
+    custom-bg
+{% endblock %}
+
+{% block extra_styles %}
+    <style>
+        .custom-bg {
+        background: linear-gradient(to bottom, #005AA7, #FFFDE4);
+        }
+
+
+    </style>
+{% endblock %}
+
+
+{% block title %}
+    Kontaktinformationer
+{% endblock %}
+
+{% block content %}
+
+    <div class="container p-5 my-5 text-dark">
+        <div class="card p-4 shadow-lg">
+        <h1 class="text-center">Kontakt mig</h1>
+        <p class="lead">Hvis I ønsker at kontakte mig, kan du sende en besked til min e-mail ved at udfylde underliggende formular.</p>
+        </div>
+    </div>
+
+    <div class="container p-3 my-3 text-dark">
+    <div class="card p-4 shadow-lg bg-white rounded-lg">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-1/4 text-right font-medium">
+                    <label for="name">Name:</label>
+                </div>
+                <div class="w-3/4">
+                    <input type="text" class="border rounded-lg p-2 w-full border-gray-300 shadow-sm" id="name" name="name" required>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-1/4 text-right font-medium">
+                    <label for="email">Email:</label>
+                </div>
+                <div class="w-3/4">
+                    <input type="text" class="border rounded-lg p-2 w-full border-gray-300 shadow-sm" id="email" name="email" required>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-3 mb-3">
+                <div class="w-1/4 text-right font-medium">
+                    <label for="message">Message:</label>
+                </div>
+                <div class="w-3/4">
+                    <textarea id="message" name="message" class="border rounded-md border-gray-300 p-2 w-full h-32 shadow-sm" required></textarea>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-1/4 text-right font-medium">
+                    <label for="captcha_answer">What is: <span id="captcha-question"></span></label>
+                </div>
+                <div class="w-3/4 flex items-center gap-2">
+                    <input type="text" id="captcha_answer" name="captcha_answer" class="border rounded-lg p-2 w-full border-gray-300 shadow-sm" required>
+                    <input type="hidden" id="correct_captcha" name="correct_captcha">
+                </div>
+            </div>
+
+            <div class="flex justify-end">
+                <button type="submit" class="bg-blue-500 text-black font-bold py-2 px-4 rounded-lg hover:bg-blue-600 shadow-md">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} mt-3 p-2 rounded-md">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    </div>
+
+    <script>
+        function generateCaptcha() {
+            var num1 = Math.floor(Math.random() * 10) + 1;
+            var num2 = Math.floor(Math.random() * 10) + 1;
+            let correctAnswer = num1 + num2;
+
+            console.log("Generated numbers:", num1, num2);
+
+            let captchaSpan = document.getElementById("captcha-question");
+            if (captchaSpan) {
+                captchaSpan.innerText = `${num1} + ${num2}`;
+            }
+            else {
+                console.error("Could not find element with ID 'captcha-question'");
+            }
+
+            document.getElementById("correct_captcha").value = correctAnswer;
+        }
+
+        document.addEventListener("DOMContentLoaded", generateCaptcha);
+        document.getElementById("refresh-captcha").addEventListener("click", generateCaptcha);
+    </script>
+
+{% endblock %}
